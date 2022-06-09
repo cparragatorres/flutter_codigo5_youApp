@@ -22,8 +22,30 @@ class InitPage extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(
-              Icons.notifications_none,
+            icon: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Icon(
+                  Icons.notifications_none,
+                ),
+                Positioned(
+                  top: -2,
+                  right: -4,
+                  child: Container(
+                    padding: const EdgeInsets.all(2.4),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.red,
+                    ),
+                    child: const Text(
+                      "9+",
+                      style: TextStyle(
+                        fontSize: 11.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           IconButton(
