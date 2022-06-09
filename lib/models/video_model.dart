@@ -38,7 +38,7 @@ class Id {
 
   factory Id.fromJson(Map<String, dynamic> json) => Id(
     kind: json["kind"],
-    videoId: json["videoId"],
+    videoId: json["videoId"] ?? "",
   );
 
   Map<String, dynamic> toJson() => {
@@ -127,9 +127,9 @@ class Default {
   int height;
 
   factory Default.fromJson(Map<String, dynamic> json) => Default(
-    url: json["url"],
-    width: json["width"],
-    height: json["height"],
+    url: json["url"] ?? "",
+    width: json["width"] ?? 0,
+    height: json["height"] ?? 0,
   );
 
   Map<String, dynamic> toJson() => {
