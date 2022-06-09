@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:flutter_codigo5_youapp/models/video_model.dart';
 import 'package:http/http.dart' as http;
 
 class APIService{
@@ -14,7 +15,8 @@ class APIService{
     if(response.statusCode == 200){
       Map<String, dynamic> mapVideo = json.decode(response.body);
       List videos = mapVideo["items"];
-      print(videos);
+      List<VideoModel> videoModelList = videos.map((e) => VideoModel.fromJson(e)).toList();
+      print(videoModelList);
     }
   }
 
