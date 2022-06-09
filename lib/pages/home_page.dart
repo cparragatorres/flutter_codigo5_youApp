@@ -58,21 +58,36 @@ class HomePage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               ListTile(
+                leading: Container(
+                  margin: const EdgeInsets.only(left: 10.0),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white30,
+                    backgroundImage: NetworkImage(
+                      "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    ),
+                  ),
+                ),
                 title: Text(
                   "Petra 4k | Welcome to Jordania",
                   maxLines: 2,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.0
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 14.0),
                 ),
                 subtitle: Text(
                   "alanxelmundo · 8.8 M de vistas · hace 5 años",
-                  style: TextStyle(
-                      color: Colors.white54,
-                      fontSize: 13.0
+                  style: TextStyle(color: Colors.white54, fontSize: 13.0),
+                ),
+                trailing: Container(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.more_vert,
+                        color: Colors.white,
+                      ),
+                    ],
                   ),
                 ),
+                contentPadding: EdgeInsets.zero,
               ),
             ],
           ),
