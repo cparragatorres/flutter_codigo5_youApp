@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_youapp/ui/general/colors.dart';
+import 'package:flutter_codigo5_youapp/ui/widgets/item_filter_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,6 +31,10 @@ class HomePage extends StatelessWidget {
                   thickness: 0.9,
                 ),
               ),
+              ItemFilterWidget(),
+              ItemFilterWidget(),
+              ItemFilterWidget(),
+              ItemFilterWidget(),
             ],
           ),
         ],
