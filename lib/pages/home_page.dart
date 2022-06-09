@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_youapp/services/api_service.dart';
 import 'package:flutter_codigo5_youapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_youapp/ui/widgets/item_filter_widget.dart';
 import 'package:flutter_codigo5_youapp/ui/widgets/item_list_video_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  final APIService _apiService = APIService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _apiService.getVideos();
+  }
+
+
+  @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: kBrandPrimaryColor,
       body: SingleChildScrollView(
