@@ -7,6 +7,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: kBrandPrimaryColor,
       body: Column(
@@ -46,6 +48,33 @@ class HomePage extends StatelessWidget {
                 ItemFilterWidget(text: "Programación", isSelected: false),
               ],
             ),
+          ),
+          Column(
+            children: [
+              Image.network(
+                "https://images.pexels.com/photos/927444/pexels-photo-927444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                width: double.infinity,
+                height: height * 0.3,
+                fit: BoxFit.cover,
+              ),
+              ListTile(
+                title: Text(
+                  "Petra 4k | Welcome to Jordania",
+                  maxLines: 2,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14.0
+                  ),
+                ),
+                subtitle: Text(
+                  "alanxelmundo · 8.8 M de vistas · hace 5 años",
+                  style: TextStyle(
+                      color: Colors.white54,
+                      fontSize: 13.0
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
