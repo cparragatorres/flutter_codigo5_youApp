@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_youapp/ui/general/colors.dart';
 
-class InitPage extends StatelessWidget {
-  const InitPage({Key? key}) : super(key: key);
+class InitPage extends StatefulWidget {
+  @override
+  State<InitPage> createState() => _InitPageState();
+}
+
+class _InitPageState extends State<InitPage> {
+  int currentPage = 0;
+
+  List<Widget> _pages = [
+    Center(child: Text("Page 1"),),
+    Center(child: Text("Page 2"),),
+    Center(child: Text("Page 3"),),
+    Center(child: Text("Page 4"),),
+    Center(child: Text("Page 5"),),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +81,7 @@ class InitPage extends StatelessWidget {
           ),
         ],
       ),
+      body: _pages[currentPage],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: kBrandPrimaryColor,
         selectedFontSize: 12.0,
@@ -76,7 +90,10 @@ class InitPage extends StatelessWidget {
         selectedItemColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         onTap: (int value) {
-          print(value);
+          currentPage = value;
+          setState(() {
+
+          });
         },
         items: [
           const BottomNavigationBarItem(
