@@ -11,31 +11,41 @@ class HomePage extends StatelessWidget {
       backgroundColor: kBrandPrimaryColor,
       body: Column(
         children: [
-          Row(
-            children: [
-              ElevatedButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.explore_outlined),
-                label: Text(
-                  "Explorar",
+          const SizedBox(
+            height: 6.0,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 12.0,
                 ),
-                style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    primary: kBrandSecondaryColor,
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0)),
-              ),
-              const SizedBox(
-                height: 32.0,
-                child: VerticalDivider(
-                  color: Colors.white24,
-                  thickness: 0.9,
+                ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: Icon(Icons.explore_outlined),
+                  label: Text(
+                    "Explorar",
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      primary: kBrandSecondaryColor,
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0)),
                 ),
-              ),
-              ItemFilterWidget(),
-              ItemFilterWidget(),
-              ItemFilterWidget(),
-              ItemFilterWidget(),
-            ],
+                const SizedBox(
+                  height: 32.0,
+                  child: VerticalDivider(
+                    color: Colors.white24,
+                    thickness: 0.9,
+                  ),
+                ),
+                ItemFilterWidget(text: "Todos", isSelected: true),
+                ItemFilterWidget(text: "Mixes", isSelected: false),
+                ItemFilterWidget(text: "Música", isSelected: false),
+                ItemFilterWidget(text: "Programación", isSelected: false),
+              ],
+            ),
           ),
         ],
       ),
