@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ItemListVideoWidget extends StatelessWidget {
@@ -6,18 +5,39 @@ class ItemListVideoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     double height = MediaQuery.of(context).size.height;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 14.0),
       child: Column(
         children: [
-          Image.network(
-            "https://images.pexels.com/photos/927444/pexels-photo-927444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            width: double.infinity,
-            height: height * 0.3,
-            fit: BoxFit.cover,
+          Stack(
+            children: [
+              Image.network(
+                "https://images.pexels.com/photos/927444/pexels-photo-927444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                width: double.infinity,
+                height: height * 0.3,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  margin: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.7)
+                  ),
+                  child: Text(
+                    "23:02",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           ListTile(
             leading: Container(
