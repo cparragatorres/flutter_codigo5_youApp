@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
     getData();
+    _apiService.getChannel("sadasdasd");
   }
 
   getData(){
