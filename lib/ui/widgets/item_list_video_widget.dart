@@ -13,6 +13,7 @@ class ItemListVideoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+    print(videoModel.snippet.channelId);
     return Container(
       margin: const EdgeInsets.only(bottom: 14.0),
       child: Column(
@@ -59,12 +60,16 @@ class ItemListVideoWidget extends StatelessWidget {
                     ),
                   );
                 }
-                return SizedBox(
-                  height: 16,
-                  width: 16,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2.0,
-                    color: Colors.white,
+                return Container(
+                  width: 50.0,
+                  alignment: Alignment.center,
+                  child: const SizedBox(
+                    height: 16,
+                    width: 16,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2.0,
+                      color: Colors.white,
+                    ),
                   ),
                 );
               },

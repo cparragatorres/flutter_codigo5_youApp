@@ -73,7 +73,7 @@ class Channel {
   factory Channel.fromJson(Map<String, dynamic> json) => Channel(
     title: json["title"],
     description: json["description"],
-    unsubscribedTrailer: json["unsubscribedTrailer"],
+    unsubscribedTrailer: json["unsubscribedTrailer"] ?? "",
   );
 
   Map<String, dynamic> toJson() => {
@@ -91,7 +91,7 @@ class ImageModel {
   String bannerExternalUrl;
 
   factory ImageModel.fromJson(Map<String, dynamic> json) => ImageModel(
-    bannerExternalUrl: json["bannerExternalUrl"],
+    bannerExternalUrl: json["bannerExternalUrl"] ?? "",
   );
 
   Map<String, dynamic> toJson() => {
