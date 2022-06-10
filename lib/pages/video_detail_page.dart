@@ -118,12 +118,56 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
                     text: "Recortar",
                   ),
                   IconDetailVideoWidget(
-                    icon: Icons.video_settings,
+                    icon: Icons.library_add_outlined,
                     text: "Guardar",
                   ),
                 ],
               ),
             ),
+          ),
+          const Divider(
+            color: Colors.white12,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.black12,
+                  backgroundImage: NetworkImage(
+                    "https://images.pexels.com/photos/11482693/pexels-photo-11482693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "vizmedia",
+                          style: TextStyle(color: Colors.white70, fontSize: 15.0),
+                        ),
+                        Text(
+                          "234 K suscriptores",
+                          style: TextStyle(color: Colors.white54, fontSize: 12.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Text(
+                  "SUSCRIBIRSE",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontWeight: FontWeight.w500
+                  ),
+                )
+              ],
+            ),
+          ),
+          const Divider(
+            color: Colors.white12,
           ),
         ],
       ),
@@ -132,10 +176,13 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
 }
 
 class IconDetailVideoWidget extends StatelessWidget {
-
   IconData icon;
   String text;
-  IconDetailVideoWidget({required this.icon, required this.text,});
+
+  IconDetailVideoWidget({
+    required this.icon,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -154,10 +201,9 @@ class IconDetailVideoWidget extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-              color: Colors.white60,
-              fontSize: 12.0,
-              fontWeight: FontWeight.w500
-            ),
+                color: Colors.white60,
+                fontSize: 12.0,
+                fontWeight: FontWeight.w500),
           )
         ],
       ),
