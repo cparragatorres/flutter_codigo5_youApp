@@ -16,18 +16,19 @@ class _HomePageState extends State<HomePage> {
 
   final APIService _apiService = APIService();
   List<VideoModel> videos = [];
+  bool isLoading = true;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getData();
-    _apiService.getChannel("sadasdasd");
   }
 
   getData(){
     _apiService.getVideos().then((value){
       videos = value;
+      isLoading = false;
       setState(() {
 
       });
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBrandPrimaryColor,
-      body: SingleChildScrollView(
+      body: !isLoading ? SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(
@@ -93,7 +94,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      ),
+      ) : Center(child: CircularProgressIndicator(),),
     );
   }
 }
