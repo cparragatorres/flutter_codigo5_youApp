@@ -16,7 +16,7 @@ class ItemListVideoWidget extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>VideoDetailPage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>VideoDetailPage(videoId: videoModel.id.videoId,)));
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 14.0),
