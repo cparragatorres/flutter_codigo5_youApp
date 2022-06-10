@@ -89,85 +89,101 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
               color: Colors.white,
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconDetailVideoWidget(
-                    icon: Icons.thumb_up_alt_outlined,
-                    text: "354 K",
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          IconDetailVideoWidget(
+                            icon: Icons.thumb_up_alt_outlined,
+                            text: "354 K",
+                          ),
+                          IconDetailVideoWidget(
+                            icon: Icons.thumb_down_alt_outlined,
+                            text: "No me gusta",
+                          ),
+                          IconDetailVideoWidget(
+                            icon: Icons.share,
+                            text: "Compartir",
+                          ),
+                          IconDetailVideoWidget(
+                            icon: Icons.download_rounded,
+                            text: "Descargar",
+                          ),
+                          IconDetailVideoWidget(
+                            icon: Icons.cut,
+                            text: "Recortar",
+                          ),
+                          IconDetailVideoWidget(
+                            icon: Icons.library_add_outlined,
+                            text: "Guardar",
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  IconDetailVideoWidget(
-                    icon: Icons.thumb_down_alt_outlined,
-                    text: "No me gusta",
+                  const Divider(
+                    color: Colors.white12,
                   ),
-                  IconDetailVideoWidget(
-                    icon: Icons.share,
-                    text: "Compartir",
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.black12,
+                          backgroundImage: NetworkImage(
+                            "https://images.pexels.com/photos/11482693/pexels-photo-11482693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "vizmedia",
+                                  style: TextStyle(color: Colors.white70, fontSize: 15.0),
+                                ),
+                                Text(
+                                  "234 K suscriptores",
+                                  style: TextStyle(color: Colors.white54, fontSize: 12.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "SUSCRIBIRSE",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.w500
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  IconDetailVideoWidget(
-                    icon: Icons.download_rounded,
-                    text: "Descargar",
+                  const Divider(
+                    color: Colors.white12,
                   ),
-                  IconDetailVideoWidget(
-                    icon: Icons.cut,
-                    text: "Recortar",
+                  Container(
+                    height: 200,
+                    color: Colors.purpleAccent,
                   ),
-                  IconDetailVideoWidget(
-                    icon: Icons.library_add_outlined,
-                    text: "Guardar",
+                  Container(
+                    height: 200,
+                    color: Colors.yellow,
                   ),
                 ],
               ),
             ),
-          ),
-          const Divider(
-            color: Colors.white12,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  backgroundColor: Colors.black12,
-                  backgroundImage: NetworkImage(
-                    "https://images.pexels.com/photos/11482693/pexels-photo-11482693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "vizmedia",
-                          style: TextStyle(color: Colors.white70, fontSize: 15.0),
-                        ),
-                        Text(
-                          "234 K suscriptores",
-                          style: TextStyle(color: Colors.white54, fontSize: 12.0),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Text(
-                  "SUSCRIBIRSE",
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontWeight: FontWeight.w500
-                  ),
-                )
-              ],
-            ),
-          ),
-          const Divider(
-            color: Colors.white12,
           ),
         ],
       ),
