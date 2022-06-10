@@ -13,7 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   final APIService _apiService = APIService();
   List<VideoModel> videos = [];
   bool isLoading = true;
@@ -25,76 +24,86 @@ class _HomePageState extends State<HomePage> {
     getData();
   }
 
-  getData(){
-    _apiService.getVideos().then((value){
+  getData() {
+    _apiService.getVideos().then((value) {
       videos = value;
       isLoading = false;
-      setState(() {
-
-      });
+      setState(() {});
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBrandPrimaryColor,
-      body: !isLoading ? SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 6.0,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              child: Row(
+      body: !isLoading
+          ? SingleChildScrollView(
+              child: Column(
                 children: [
                   const SizedBox(
-                    width: 12.0,
+                    height: 6.0,
                   ),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.explore_outlined),
-                    label: Text(
-                      "Explorar",
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          width: 12.0,
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: Icon(Icons.explore_outlined),
+                          label: Text(
+                            "Explorar",
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              primary: kBrandSecondaryColor,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10.0)),
+                        ),
+                        const SizedBox(
+                          height: 32.0,
+                          child: VerticalDivider(
+                            color: Colors.white24,
+                            thickness: 0.9,
+                          ),
+                        ),
+                        ItemFilterWidget(text: "Todos", isSelected: true),
+                        ItemFilterWidget(text: "Mixes", isSelected: false),
+                        ItemFilterWidget(text: "Música", isSelected: false),
+                        ItemFilterWidget(
+                            text: "Programación", isSelected: false),
+                      ],
                     ),
-                    style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        primary: kBrandSecondaryColor,
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0)),
                   ),
                   const SizedBox(
-                    height: 32.0,
-                    child: VerticalDivider(
-                      color: Colors.white24,
-                      thickness: 0.9,
-                    ),
+                    height: 8.0,
                   ),
-                  ItemFilterWidget(text: "Todos", isSelected: true),
-                  ItemFilterWidget(text: "Mixes", isSelected: false),
-                  ItemFilterWidget(text: "Música", isSelected: false),
-                  ItemFilterWidget(text: "Programación", isSelected: false),
+                  ListView.builder(
+                    physics: const ScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: videos.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ItemListVideoWidget(
+                        videoModel: videos[index],
+                      );
+                    },
+                  ),
                 ],
               ),
+            )
+          : const Center(
+              child: SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.0,
+                  color: Colors.white,
+                ),
+              ),
             ),
-            const SizedBox(
-              height: 8.0,
-            ),
-            ListView.builder(
-              physics: const ScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: videos.length,
-              itemBuilder: (BuildContext context, int index){
-                return ItemListVideoWidget(
-                  videoModel: videos[index],
-                );
-              },
-            ),
-          ],
-        ),
-      ) : Center(child: CircularProgressIndicator(),),
     );
   }
 }

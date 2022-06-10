@@ -24,7 +24,7 @@ class APIService{
 
 
   Future<ChannelModel?> getChannel(String channelId) async{
-    String _path = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings,contentDetails,topicDetails&id=UCMnHk6_QgQT1KQkbUlxhTYw&key=";
+    String _path = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings,contentDetails,topicDetails&id=$channelId&key=AIzaSyDcwD_ZOkxDiAgxn8QhG7lUao7afdJPBrE";
     Uri _uri = Uri.parse(_path);
     http.Response response = await http.get(_uri);
     if(response.statusCode == 200){

@@ -46,11 +46,11 @@ class BrandingSettings {
   });
 
   Channel channel;
-  Image image;
+  ImageModel image;
 
   factory BrandingSettings.fromJson(Map<String, dynamic> json) => BrandingSettings(
     channel: Channel.fromJson(json["channel"]),
-    image: Image.fromJson(json["image"]),
+    image: ImageModel.fromJson(json["image"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -83,14 +83,14 @@ class Channel {
   };
 }
 
-class Image {
-  Image({
+class ImageModel {
+  ImageModel({
     required this.bannerExternalUrl,
   });
 
   String bannerExternalUrl;
 
-  factory Image.fromJson(Map<String, dynamic> json) => Image(
+  factory ImageModel.fromJson(Map<String, dynamic> json) => ImageModel(
     bannerExternalUrl: json["bannerExternalUrl"],
   );
 

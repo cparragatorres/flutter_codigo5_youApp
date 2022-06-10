@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_youapp/models/channel_model.dart';
 import 'package:flutter_codigo5_youapp/models/video_model.dart';
+import 'package:flutter_codigo5_youapp/services/api_service.dart';
 
 class ItemListVideoWidget extends StatelessWidget {
 
   VideoModel videoModel;
   ItemListVideoWidget({required this.videoModel,});
+
+  final APIService _apiService = APIService();
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +46,28 @@ class ItemListVideoWidget extends StatelessWidget {
             ],
           ),
           ListTile(
-            leading: Container(
-              margin: const EdgeInsets.only(left: 10.0),
-              child: CircleAvatar(
-                backgroundColor: Colors.white30,
-                backgroundImage: NetworkImage(
-                  "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                ),
-              ),
+            leading: FutureBuilder(
+              future: _apiService.getChannel(videoModel.snippet.channelId),
+              builder: (BuildContext context, AsyncSnapshot snap){
+                if(snap.hasData){
+                  ChannelModel channel = snap.data;
+                  return Container(
+                    margin: const EdgeInsets.only(left: 10.0),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white30,
+                      backgroundImage: NetworkImage(channel.snippet.thumbnails.thumbnailsDefault.url),
+                    ),
+                  );
+                }
+                return SizedBox(
+                  height: 16,
+                  width: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2.0,
+                    color: Colors.white,
+                  ),
+                );
+              },
             ),
             title: Text(
               videoModel.snippet.title,
