@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_youapp/pages/channel_page.dart';
 import 'package:flutter_codigo5_youapp/ui/general/colors.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -134,44 +135,73 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.black12,
-                          backgroundImage: NetworkImage(
-                            "https://images.pexels.com/photos/11482693/pexels-photo-11482693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "vizmedia",
-                                  style: TextStyle(color: Colors.white70, fontSize: 15.0),
-                                ),
-                                Text(
-                                  "234 K suscriptores",
-                                  style: TextStyle(color: Colors.white54, fontSize: 12.0),
-                                ),
-                              ],
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> ChannelPage()));
+                      },
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.black12,
+                            backgroundImage: NetworkImage(
+                              "https://images.pexels.com/photos/11482693/pexels-photo-11482693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                             ),
                           ),
-                        ),
-                        Text(
-                          "SUSCRIBIRSE",
-                          style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.w500
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "vizmedia",
+                                    style: TextStyle(color: Colors.white70, fontSize: 15.0),
+                                  ),
+                                  Text(
+                                    "234 K suscriptores",
+                                    style: TextStyle(color: Colors.white54, fontSize: 12.0),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        )
-                      ],
+                          Text(
+                            "SUSCRIBIRSE",
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.w500
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   const Divider(
                     color: Colors.white12,
+                  ),
+                  Container(
+                    height: 200,
+                    color: Colors.purpleAccent,
+                  ),
+                  Container(
+                    height: 200,
+                    color: Colors.yellow,
+                  ),
+                  Container(
+                    height: 200,
+                    color: Colors.purpleAccent,
+                  ),
+                  Container(
+                    height: 200,
+                    color: Colors.yellow,
+                  ),
+                  Container(
+                    height: 200,
+                    color: Colors.purpleAccent,
+                  ),
+                  Container(
+                    height: 200,
+                    color: Colors.yellow,
                   ),
                   Container(
                     height: 200,
